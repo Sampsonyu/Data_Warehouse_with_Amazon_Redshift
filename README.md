@@ -15,10 +15,7 @@ ETL pipelines that transfers data from files in json format to Amazon Redshift d
 
 ## Datasets
 
-Data is available in two separate folders in s3 under log_data and song_data folders.
-
-### Source File Information:
-There are 2 different types of Data (Event Files and Song Files) that is available for the Sparkify music streaming application amd they are stored as JSON files. Following are the paths for the files:
+There are 2 different types of Data (Event Files and Song Files) that are available in two separate folders in Amazon s3 for the Sparkify music streaming application. They are stored as JSON files. Following are the paths for the files:
 
 **Song Data**
 s3://udacity-dend/song_data
