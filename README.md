@@ -17,11 +17,51 @@ ETL pipelines that transfers data from files in json format to Amazon Redshift d
 
 Data is available in two separate folders in s3 under log_data and song_data folders.
 
-### Log Data
-The log_data folder consists of activity logs in json format. The log files are partioned by year and month.
+### Source File Information:
+There are 2 different types of Data (Event Files and Song Files) that is available for the Sparkify music streaming application amd they are stored as JSON files. Following are the paths for the files:
 
- - log_data/2018/11/2018-11-12-events.json
- - log_data/2018/11/2018-11-13-events.json
+**Song Data**
+s3://udacity-dend/song_data
+
+**Log Data** 
+s3://udacity-dend/log_data
+
+Following are the JSON file structures:
+
+
+- Song Files: It has all Songs, Albums and Artist related details. Here is one sample row:
+        {   "num_songs": 1, 
+            "artist_id": "ARD7TVE1187B99BFB1", 
+            "artist_latitude": null, 
+            "artist_longitude": null, 
+            "artist_location": "California - LA", 
+            "artist_name": "Casual", 
+            "song_id": "SOMZWCG12A8C13C480", 
+            "title": "I Didn't Mean To", 
+            "duration": 218.93179, 
+            "year": 0
+        }
+
+- Log Files: It has the logs of the user's music listening activity on the app. Here is one sample row:
+        {   "artist":null,
+            "auth":"Logged In",
+            "firstName":"Walter",
+            "gender":"M",
+            "itemInSession":0,
+            "lastName":"Frye",
+            "length":null,
+            "level":"free",
+            "location":"San Francisco-Oakland-Hayward, CA",
+            "method":"GET",
+            "page":"Home",
+            "registration":1540919166796.0,
+            "sessionId":38,
+            "song":null,
+            "status":200,
+            "ts":1541105830796,
+            "userAgent":"\"Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.143 Safari\/537.36\"","userId":"39"
+        }
+        
 
 ### Requirements
 
