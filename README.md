@@ -42,3 +42,24 @@ sparkify-redshift-dwh/
  ├── etl.py                 Python script to load data from S3 into Redshift and again into the datawarehouse
  └── sql_queries.py         Python file containing all SQL statements for ELT process
 ```
+## Example Analytical Queries
+
+- **Top Ten most played songs:** <br>
+    SELECT s.title, count(sp.songplay_id) play_count <br>
+    FROM songplays sp, songs s <br>
+    WHERE sp.song_id = s.song_id <br>
+    GROUP BY s.title <br>
+    ORDER BY play_count DESC <br>
+    LIMIT 10; <br>
+    
+- **Top ten locations with most song play count:** <br>
+    SELECT sp.location, count(sp.songplay_id) play_count <br>
+    FROM songplays sp <br>
+    GROUP BY sp.location <br>
+    ORDER BY play_count DESC <br>
+    LIMIT 10; <br>
+
+- **User counts by Level:** <br>
+    SELECT u.level, count(u.user_id) user_count <br>
+    FROM users u <br>
+    GROUP BY u.level;
